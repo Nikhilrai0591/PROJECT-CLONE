@@ -8,42 +8,86 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">NETFLIX</div>
+<header class="header">
+    <div class="logo">NETFLIX</div>
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#popular">Popular</a>
+        <a href="#my-list">My List</a>
+    </nav>
+    <div class="header-actions">
+        <button class="search-toggle" aria-label="Open search">⌕</button>
         <button class="sign-in">Sign In</button>
-    </header>
+    </div>
+</header>
 
-    <!-- Hero Section -->
+<main id="home">
     <section class="hero">
         <div class="hero-content">
+            <p class="hero-kicker">NETFLIX ORIGINAL</p>
             <h1>Unlimited movies, TV shows and more</h1>
             <h2>Watch anywhere. Cancel anytime.</h2>
             <p>Ready to watch? Enter your email to create or restart your membership.</p>
 
-            <div class="email-box">
-                <input type="email" placeholder="Email address">
-                <button>Get Started</button>
+            <form class="email-box" id="email-form">
+                <input id="email-input" type="email" placeholder="Email address" required>
+                <button type="submit">Get Started</button>
+            </form>
+            <p class="form-message" id="form-message"></p>
+        </div>
+    </section>
+
+    <section class="content-section" id="popular">
+        <div class="section-heading">
+            <h2>Popular on Netflix</h2>
+            <div class="carousel-controls">
+                <button class="carousel-btn" data-target="popular-row" data-direction="-1">‹</button>
+                <button class="carousel-btn" data-target="popular-row" data-direction="1">›</button>
             </div>
         </div>
+        <div class="row-posters" id="popular-row"></div>
     </section>
 
-    <!-- Movie Row -->
-    <section class="row">
-        <h2>Popular on Netflix</h2>
-        <div class="row-posters">
-            <img src="https://via.placeholder.com/200x300" alt="">
-            <img src="https://via.placeholder.com/200x300" alt="">
-            <img src="https://via.placeholder.com/200x300" alt="">
-            <img src="https://via.placeholder.com/200x300" alt="">
-            <img src="https://via.placeholder.com/200x300" alt="">
+    <section class="content-section" id="my-list">
+        <div class="section-heading">
+            <h2>My List</h2>
         </div>
+        <div class="row-posters" id="my-list-row"></div>
+        <p class="empty-list" id="empty-list">Your list is empty. Add a movie to see it here.</p>
     </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Netflix Clone © 2026</p>
-    </footer>
+<div class="search-panel" id="search-panel">
+    <div class="search-box">
+        <input id="search-input" type="search" placeholder="Search movies and shows..." autocomplete="off">
+        <button id="close-search" aria-label="Close search">×</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+</div>
 
+<div class="modal hidden" id="movie-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+        <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+        <img id="modal-image" src="" alt="">
+        <div class="modal-content">
+            <span class="modal-tag">MOVIE</span>
+            <h2 id="modal-title"></h2>
+            <p class="modal-meta" id="modal-meta"></p>
+            <p id="modal-description"></p>
+            <div class="modal-actions">
+                <button class="play-btn" id="play-btn">▶ Play</button>
+                <button class="list-btn" id="modal-list-btn">＋ My List</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+    <p>Netflix Clone © 2026</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
